@@ -13,9 +13,11 @@ def MetodoEuler(func,x,y,h,xFinal):
     
     listaDeIteraciones.append((x,y))
     
-    while(x < xFinal):
+    while(x < xFinal - 1e-9):
         y = y+h*func(x,y)
         x = x+h
+        if (x>xFinal):
+            x = xFinal
         listaDeIteraciones.append((x,y))
     
     return listaDeIteraciones
